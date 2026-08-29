@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rons Games - PS4 Jailbreak</title>
+<style>
+:root{--bg:#020711;--panel:#07111f;--line:#17314d;--blue:#168cff;--blue2:#00b7ff;--text:#e9f2ff;--muted:#aab9cc;--cyan:#16d9ff;--green:#69e35d;--gold:#ffc21c;--purple:#a75cff;--orange:#ff8a18}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#020711;color:var(--text);font-family:"Roboto Condensed",Arial,sans-serif}body{background:radial-gradient(circle at 50% 0,#082044 0,#030a14 38%,#01050b 100%);overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background:linear-gradient(115deg,transparent 0 40%,#0a2e61 40.2% 40.7%,transparent 41% 100%)}
+.wrap{max-width:1500px;margin:auto;padding:28px 32px 18px}.top{position:relative;min-height:142px;display:flex;align-items:center;justify-content:center;text-align:center}.brand{position:absolute;left:8px;top:0;text-align:left;font-family:"RonsFacon",Arial,sans-serif;font-weight:900;font-style:italic;line-height:.72;letter-spacing:-2px;font-size:48px;text-shadow:0 4px 0 #111}.brand span{display:block;color:#168cff;font-size:43px;margin-left:45px}.ps{position:absolute;right:5px;top:17px;font-size:36px;font-weight:300;letter-spacing:2px}.title h1{font-family:"Roboto Condensed",Arial,sans-serif;font-size:34px;margin:0;font-weight:800;letter-spacing:1px}.title h1 span{color:#208fff}.title p{font-size:22px;color:#8db6ea;margin:8px 0 0;letter-spacing:.5px}
+.layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(330px,1.05fr);gap:28px}.section-title{font-family:"Roboto Condensed",Arial,sans-serif;font-size:18px;color:#168cff;font-weight:800;letter-spacing:1px;border-left:3px solid #168cff;padding-left:17px;margin:5px 0 14px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{min-height:236px;background:linear-gradient(145deg,rgba(7,19,34,.96),rgba(2,9,18,.98));border:1px solid #1b3854;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 12px;cursor:pointer;transition:.12s transform,.12s border-color,.12s box-shadow;outline:none}.card:hover,.card:focus,.card.selected{border-color:#168cff;box-shadow:0 0 0 1px #168cff,0 0 22px rgba(22,140,255,.35);transform:translateY(-1px)}.icon{height:100px;width:100px;display:grid;place-items:center;font-size:65px;margin-bottom:8px;filter:drop-shadow(0 0 8px rgba(22,140,255,.25))}.card h2{font-family:"Roboto Condensed",Arial,sans-serif;font-size:21px;font-weight:700;margin:0 0 4px}.card p{font-size:16px;line-height:1.35;color:#d8e1ed;margin:0;max-width:190px}.c-jb h2{color:#208fff}.c-gh h2{color:var(--gold)}.c-ftp h2{color:var(--cyan)}.c-fan h2{color:var(--purple)}.c-tools h2{color:var(--green)}.c-pay h2{color:#b9c4d3}.c-bin h2{color:var(--orange)}.c-info h2{color:#208fff}
+.panel{background:rgba(4,13,24,.82);border:1px solid #17314d;border-radius:10px;overflow:hidden;margin-bottom:14px}.panel h3{font-family:"Roboto Condensed",Arial,sans-serif;margin:0;padding:14px 20px;border-bottom:1px solid #17314d;color:#168cff;font-size:18px}.info-row{display:flex;justify-content:space-between;gap:15px;padding:13px 20px;border-bottom:1px solid rgba(23,49,77,.65);font-size:16px}.info-row:last-child{border-bottom:0}.label{color:#d9e3ef}.value{color:#eef6ff;text-align:right}.fw{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:18px 20px}.fw button{font-family:"Roboto Condensed",Arial,sans-serif;border:1px solid #203c58;background:#071321;color:#d9e5f4;border-radius:7px;padding:12px 4px;font-size:16px;cursor:pointer}.fw button.active,.fw button:focus{border-color:#168cff;box-shadow:0 0 12px rgba(22,140,255,.35);color:#fff;outline:none}.notice{padding:12px 20px 18px;color:#cbd8e8;font-size:14px}.announce{padding:13px 22px 16px;min-height:124px}.announce div{margin:6px 0}.ann-arrow{color:#66e66e;margin-right:10px}.about{display:flex;justify-content:space-between;gap:20px;padding:18px 20px 20px;align-items:center}.about strong{color:#17bfff}.mini-brand{font-family:"RonsFacon",Arial,sans-serif;font-weight:900;font-style:italic;font-size:32px;line-height:.7;text-align:right}.mini-brand span{display:block;color:#168cff;font-size:28px;margin-left:25px}.bottom{margin-top:8px;border-top:1px solid #18314a;padding:15px 5px 0;display:flex;justify-content:space-between;color:#c2cfdf;font-size:15px}.keys span{margin-right:22px}.status{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);padding:10px 18px;border:1px solid #168cff;background:#031020;color:#dfeeff;border-radius:7px;display:none;z-index:5}.status.show{display:block}
+@media(max-width:1100px){.layout{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.brand{font-size:38px}.brand span{font-size:34px}.ps{display:none}}@media(max-width:620px){.wrap{padding:15px}.top{min-height:130px}.brand{position:static;text-align:center;margin-bottom:10px}.brand span{margin-left:30px}.top{display:block}.title{padding-top:70px}.title h1{font-size:24px}.title p{font-size:16px}.cards{grid-template-columns:1fr 1fr;gap:9px}.card{min-height:180px}.icon{height:65px;width:65px;font-size:43px}.card h2{font-size:16px}.card p{font-size:12px}.layout{gap:15px}.bottom{font-size:12px}.keys span{margin-right:8px}}
+</style>
+<style>
+@font-face{font-family:"Roboto Condensed";src:url("assets/RobotoCondensed-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Roboto Condensed";src:url("assets/RobotoCondensed-Bold.ttf") format("truetype");font-weight:700 900;font-style:normal;font-display:swap}
+@font-face{font-family:"RonsFacon";src:url("assets/Facon.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">RONS<span>GAMES</span></div>
+    <div class="title"><h1>PS4 JAILBREAK <span>11.50 - 13.00</span></h1><p>WEB KIT EXPLOIT HOST</p></div>
+    <div class="ps">◉ PS4</div>
+  </header>
+
+  <div class="layout">
+    <main>
+      <div class="section-title">MAIN MENU</div>
+      <div class="cards" id="cards">
+        <div class="card c-jb selected" tabindex="0" data-action="jailbreak"><div class="icon">☠</div><h2>JAILBREAK</h2><p>Run Jailbreak<br>(11.50 - 13.00)</p></div>
+        <div class="card c-gh" tabindex="0" data-action="info"><div class="icon">★</div><h2>GOLDHEN</h2><p>Load GoldHEN<br>Payload</p></div>
+        <div class="card c-ftp" tabindex="0" data-action="info"><div class="icon">▰</div><h2>FTP</h2><p>Enable FTP<br>Server</p></div>
+        <div class="card c-fan" tabindex="0" data-action="info"><div class="icon">✥</div><h2>FAN CONTROL</h2><p>Manage Fan Speed<br>&amp; Temp</p></div>
+        <div class="card c-tools" tabindex="0" data-action="info"><div class="icon">▣</div><h2>TOOLS</h2><p>Useful Tools</p></div>
+        <div class="card c-pay" tabindex="0" data-action="info"><div class="icon">▱</div><h2>PAYLOADS</h2><p>Extra Payloads<br>Collection</p></div>
+        <div class="card c-bin" tabindex="0" data-action="info"><div class="icon">⇩</div><h2>BIN LOADER</h2><p>Load .bin<br>Manually</p></div>
+        <div class="card c-info" tabindex="0" data-action="info"><div class="icon">ⓘ</div><h2>SYSTEM INFO</h2><p>System &amp; Firmware<br>Information</p></div>
+      </div>
+
+      <section class="panel" style="margin-top:14px">
+        <h3>ANNOUNCEMENTS</h3>
+        <div class="announce">
+          <div><span class="ann-arrow">»</span>Support Firmware 11.50 - 13.00</div>
+          <div><span class="ann-arrow">»</span>Stable Exploit Host</div>
+          <div><span class="ann-arrow">»</span>Don't update your PS4!</div>
+          <div><span class="ann-arrow">»</span>Made with ❤️ by Rons Games</div>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="panel">
+        <h3>SYSTEM INFORMATION</h3>
+        <div class="info-row"><span class="label">⚙ Firmware</span><span class="value" id="fwValue">Detecting...</span></div>
+        <div class="info-row"><span class="label">◉ System Software</span><span class="value" id="swValue">Detecting...</span></div>
+        <div class="info-row"><span class="label">🎮 Console</span><span class="value">PS4</span></div>
+        <div class="info-row"><span class="label">⌁ IP Address</span><span class="value">Unavailable</span></div>
+        <div class="info-row"><span class="label">◎ Host</span><span class="value">Rons Games JB Host</span></div>
+      </section>
+
+      <section class="panel">
+        <h3>FIRMWARE SELECTION</h3>
+        <div class="fw" id="fwButtons"><button data-fw="11.50">11.50</button><button data-fw="12.00">12.00</button><button data-fw="12.50">12.50</button><button data-fw="13.00">13.00</button></div>
+        <div class="notice">ⓘ Pilih firmware yang sesuai dengan sistem Anda.<br>Pastikan versi firmware sudah sesuai.</div>
+      </section>
+
+      <section class="panel">
+        <h3>ABOUT</h3>
+        <div class="about"><div><strong>Rons Games PS4 Jailbreak Host</strong><br><br>By Rons Games<br><br>Modded with 💙</div><div class="mini-brand">RONS<span>GAMES</span></div></div>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="bottom"><div class="keys">ⓧ Enter &nbsp;&nbsp;&nbsp; ⭕ Back &nbsp;&nbsp;&nbsp; □ Refresh &nbsp;&nbsp;&nbsp; OPTIONS Options</div><div>Rons Games &nbsp; ◉ 🎮</div></footer>
+</div>
+<div class="status" id="status"></div>
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card')), selected=0, status=document.getElementById('status');
+  var key=null,fwnum=null,m=/PlayStation\s+4[\/ ](\d+)\.(\d+)/.exec(navigator.userAgent);
+  if(m){var minor=parseInt(m[2],16),ms=minor.toString(16);if(ms.length<2)ms='0'+ms;key=m[1]+'.'+ms;fwnum=parseInt(m[1],10)*100+parseInt(ms,10)}
+  document.getElementById('fwValue').textContent=key||'Unknown'; document.getElementById('swValue').textContent=key||'Unknown';
+  var buttons=[].slice.call(document.querySelectorAll('#fwButtons button'));buttons.forEach(function(b){if(b.dataset.fw===key)b.classList.add('active');b.addEventListener('click',function(){buttons.forEach(function(x){x.classList.remove('active')});b.classList.add('active');show('Firmware selection is display-only; PS4 firmware is detected automatically.')})});
+  function show(t){status.textContent=t;status.classList.add('show');clearTimeout(show.t);show.t=setTimeout(function(){status.classList.remove('show')},2600)}
+  function select(i){selected=(i+cards.length)%cards.length;cards.forEach(function(c,n){c.classList.toggle('selected',n===selected)});cards[selected].focus()}
+  function go(){
+    var bug=null;
+    var params=new URLSearchParams(location.search);var forced=params.get('bug');
+    if(forced==='lapse'||forced==='poops')bug=forced;
+    else if(!key){} else if(fwnum<=1202)bug='lapse'; else if(fwnum>=1250)bug='poops';
+    if(!bug){show('Unsupported firmware or PS4 firmware not detected.');return}
+    location.replace((bug==='lapse'?'run_lapse.html':'run_poops.html')+location.search);
+  }
+  function activate(){if(cards[selected].dataset.action==='jailbreak')go();else show('This menu item is reserved for the payload/tools section. Jailbreak remains connected to the original chain.')}
+  cards.forEach(function(c,i){c.addEventListener('click',function(){select(i);activate()});c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}})});
+  window.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'){e.preventDefault();select(selected%4+1 + Math.floor(selected/4)*4);}
+    else if(k==='ArrowLeft'){e.preventDefault();select(Math.floor(selected/4)*4 + (selected%4+3)%4)}
+    else if(k==='ArrowDown'){e.preventDefault();select(selected+4)}
+    else if(k==='ArrowUp'){e.preventDefault();select(selected-4)}
+    else if(k==='Enter'){e.preventDefault();activate()}
+    else if(k==='Escape'||k==='Backspace'){show('Back')}
+  });
+  cards[0].focus();
+
+  // Preserve the original offline application-cache behavior.
+  var ac=window.applicationCache;
+  if(ac){
+    ac.addEventListener('updateready',function(){try{ac.swapCache()}catch(e){}},false);
+  }
+})();
+</script>
+</body>
+</html>
